@@ -389,32 +389,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🎥 Demo & Documentation
 
 ### 📹 **Video Demonstration**
-[Insert link to project demonstration video]
+🎬 **[Watch Project Demo Video](https://drive.google.com/file/d/1-grJpwME78HN3jAvIs3xVybdHtEVVFYs/view?usp=sharing)**
 
-### 📊 **Project Report**
-[Insert link to detailed project report PDF]
-
-### 🌐 **Live Demo**
-- **Web Dashboard**: [Insert deployed dashboard URL]
-- **API Documentation**: [Insert API docs URL]
+*Click the link above to view a comprehensive demonstration of Projects's features, including the anomaly detection system, analytics dashboard, AI-powered queries, and report generation capabilities.*
 
 ## 👥 Team
 
-- **Abhinav Nair** - Project Lead & Full-stack Developer
-- [Add other team members]
-
-## 📞 Support
-
-For support, email support@aambadb.com or create an issue in this repository.
-
-## 🙏 Acknowledgments
-
-- OpenAI for GPT models and embeddings
-- Firebase for authentication and database services
-- LangChain for RAG implementation
-- The open-source community for various libraries and tools
-
----
+- **Abhinav Nair** - Full-stack Developer
 
 <div align="center">
   <p><strong>Built with ❤️ for the restaurant industry</strong></p>
