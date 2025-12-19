@@ -394,7 +394,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 *Click the link above to view a comprehensive demonstration of Projects's features, including the anomaly detection system, analytics dashboard, AI-powered queries, and report generation capabilities.*
 
 ## 👥 Team
-
+- **Vedant Kesharia** - Full Stack Developer and AI Researcher
+- **Rohit Rai** - Developer
+- **Krishna Naudiyal** - Developer
 - **Abhinav Nair** - Full-stack Developer
 
 <div align="center">
