@@ -6,7 +6,9 @@
 
 ## 🚀 Project Overview
 
-**AambaDB** is a comprehensive restaurant analytics and anomaly detection system designed to help restaurant owners and managers monitor, analyze, and optimize their business operations. The system leverages advanced machine learning algorithms, vector databases, and interactive dashboards to provide real-time insights into restaurant performance, detect anomalies in sales patterns, and generate detailed analytical reports.
+**AambaDB** is a comprehensive restaurant analytics and anomaly detection system designed to help restaurant owners and managers monitor, analyze, and optimize their business operations. The system leverages advanced machine learning algorithms, vector databases, Retrieval-Augmented Generation (RAG), and interactive dashboards to provide real-time insights into restaurant performance, detect anomalies in sales patterns, and generate detailed analytical reports.
+
+The platform also includes an **AI-powered incident resolution workflow using Zapier and Bland AI**, enabling restaurant owners to initiate automated AI voice calls to staff members directly from flagged transactions. The AI agent receives contextual information about the detected issue, explains the problematic entry, gathers additional information from the employee, records and transcribes the conversation, generates an AI-powered summary, and stores the transcript and summary in the database for the restaurant owner to review through the mobile application.
 
 ### 🎯 Problem Statement
 
@@ -28,6 +30,17 @@ AambaDB addresses these challenges by providing an AI-powered analytics platform
 - **Risk scoring system** for prioritizing anomalies
 - **Automated alerts** for critical issues
 
+### 📞 **AI-Powered Voice Incident Resolution**
+- Restaurant owners can initiate an automated AI call directly from a flagged transaction
+- **Zapier** orchestrates the automated calling workflow
+- **Bland AI** places contextual AI-powered voice calls to the relevant staff member
+- Transaction and anomaly details are provided to the AI agent before the call
+- The AI agent explains the flagged entry and gathers additional information from the employee
+- Conversations are automatically **recorded and transcribed**
+- AI-generated summaries are created from the call transcripts
+- Call transcripts, summaries, and incident details are stored in the database
+- Restaurant owners can review the complete call history and AI-generated summaries from the mobile application
+
 ### 📊 **Advanced Analytics Dashboard**
 - **Interactive visualizations** with multiple chart types (bar, line, pie, area, heatmap)
 - **Revenue tracking** and performance metrics
@@ -38,6 +51,7 @@ AambaDB addresses these challenges by providing an AI-powered analytics platform
 - **Natural language processing** for data queries
 - **Vector database integration** using FAISS
 - **LangChain-powered** retrieval and analysis
+- **Retrieval-Augmented Generation (RAG)** for context-aware restaurant data analysis
 - **Automated graph generation** based on queries
 
 ### 📱 **Cross-Platform Support**
@@ -71,11 +85,19 @@ AambaDB addresses these challenges by providing an AI-powered analytics platform
 
 ### **Backend (API Server)**
 - **Framework**: Flask with CORS support
-- **AI/ML**: OpenAI GPT models, LangChain, FAISS vector store
+- **AI/ML**: OpenAI GPT models, LangChain, FAISS vector store, RAG
 - **Data Processing**: Pandas, NumPy, Matplotlib, Seaborn
 - **File Handling**: PyPDF2, CSV parsing with encoding detection
 - **Email**: SMTP integration for report delivery
 - **PDF Generation**: ReportLab for custom reports
+
+### **AI Voice Automation**
+- **Workflow Automation**: Zapier
+- **Voice AI**: Bland AI
+- **Automated outbound calling**
+- **Context-aware AI conversations**
+- **Call recording and transcription**
+- **AI-generated call summarization**
 
 ### **Mobile Application**
 - **Framework**: Flutter
@@ -98,7 +120,7 @@ AambaDB addresses these challenges by providing an AI-powered analytics platform
 
 ## 🏗️ Project Architecture
 
-```
+```text
 AambaDB/
 ├── 📁 App/                          # Mobile Application
 │   ├── 📁 android/                  # Android-specific files
@@ -164,7 +186,7 @@ echo "EMAIL_PORT=587" >> .env
 echo "EMAIL_USER=your_email@gmail.com" >> .env
 echo "EMAIL_PASSWORD=your_app_password" >> .env
 
-# Start the Flask server
+# Start Flask server
 python rag.py
 ```
 
@@ -226,7 +248,20 @@ flutter run -d ios           # iOS (macOS only)
 3. Filter by date range, staff member, or category
 4. Take action on flagged transactions
 
-### 3. **Analytics Dashboard**
+### 3. **AI-Powered Voice Incident Resolution**
+
+1. Select a flagged transaction or anomaly requiring staff clarification
+2. Press the call/action button from the application
+3. **Zapier** triggers the automated calling workflow
+4. **Bland AI** calls the relevant staff member
+5. The AI voice agent receives the transaction details and explains the flagged issue
+6. The staff member provides additional information during the AI conversation
+7. The call is automatically recorded and transcribed
+8. An AI-generated summary is created from the transcript
+9. The transcript and summary are saved in the database
+10. The restaurant owner can review the incident details, transcript, and summary from the mobile application
+
+### 4. **Analytics Dashboard**
 
 1. Monitor key metrics on the main dashboard:
    - Daily orders and revenue
@@ -234,14 +269,14 @@ flutter run -d ios           # iOS (macOS only)
    - Peak hours analysis
    - Trend visualizations
 
-### 4. **AI-Powered Queries**
+### 5. **AI-Powered Queries**
 
 1. Use natural language to query your data:
    - "Show me sales trends for last month"
    - "Which staff member has the highest returns?"
    - "Generate a report on weekend performance"
 
-### 5. **Report Generation**
+### 6. **Report Generation**
 
 1. Generate automated PDF reports
 2. Schedule email delivery to stakeholders
@@ -254,6 +289,7 @@ flutter run -d ios           # iOS (macOS only)
 
 #### `POST /query`
 Process natural language queries and generate insights
+
 ```json
 {
   "query": "Show me revenue trends for the last 30 days",
@@ -263,6 +299,7 @@ Process natural language queries and generate insights
 
 #### `POST /process_file`
 Upload and process restaurant data files
+
 ```json
 {
   "file": "multipart/form-data",
@@ -272,6 +309,7 @@ Upload and process restaurant data files
 
 #### `POST /download_report`
 Generate and download PDF reports
+
 ```json
 {
   "query": "Monthly performance report",
@@ -288,7 +326,8 @@ Run comprehensive system diagnostics
 
 ### Authentication
 All endpoints support Firebase token-based authentication. Include the token in the Authorization header:
-```
+
+```text
 Authorization: Bearer <firebase_id_token>
 ```
 
@@ -303,7 +342,7 @@ Authorization: Bearer <firebase_id_token>
 ### **Vector Database Integration**
 - **FAISS Storage**: Efficient similarity search for large datasets
 - **Embedding Generation**: OpenAI embeddings for semantic search
-- **Query Processing**: LangChain for intelligent data retrieval
+- **Query Processing**: LangChain and RAG for intelligent data retrieval
 - **Real-time Updates**: Incremental updates to vector store
 
 ### **Visualization Engine**
